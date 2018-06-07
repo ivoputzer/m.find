@@ -1,0 +1,7 @@
+test/
+
+.babelrc
+.travis.yml
+
+*.log
+*.tgz
