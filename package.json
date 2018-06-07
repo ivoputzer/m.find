@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "m(icro)find",
   "main": "index.js",
+  "bin": {
+    "m.find": "bin/m.find"
+  },
   "standard": {
     "globals": [
       "test"
@@ -10,6 +13,7 @@
   },
   "scripts": {
     "node": "node",
+    "start": "$npm_package_bin_m_find",
     "pretest": "standard",
     "test": "m.test",
     "coverage": "node --require ./node_modules/m.test/global.js ./node_modules/istanbul/lib/cli.js cover --print detail test"
