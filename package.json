@@ -1,7 +1,7 @@
 {
   "name": "m.find",
   "version": "0.0.1",
-  "description": "m(icro)find",
+  "description": "m(icro)find is a lightweight find utility written in es6+",
   "main": "index.js",
   "bin": {
     "m.find": "bin/m.find"
@@ -33,7 +33,9 @@
     "url": "https://github.com/ivoputzer/m.find/issues"
   },
   "homepage": "https://github.com/ivoputzer/m.find#readme",
-  "dependencies": {},
+  "dependencies": {
+    "istanbul": "^0.4.5"
+  },
   "devDependencies": {
     "m.test": "0.0.57",
     "standard": "^11.0.1"
