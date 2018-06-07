@@ -13,7 +13,7 @@
   },
   "scripts": {
     "node": "node",
-    "start": "$npm_package_bin_m_find",
+    "start": "bin/m.find",
     "pretest": "standard",
     "test": "m.test",
     "coverage": "node --require ./node_modules/m.test/global.js ./node_modules/istanbul/lib/cli.js cover --print detail test"

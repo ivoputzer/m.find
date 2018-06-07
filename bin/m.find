@@ -2,4 +2,6 @@
 
 const {find} = require('..')
 
-console.log('not yet implemented')
+find(process.cwd(), { filter (path) { return true } })
+  .then(list => list.forEach(file => process.stdout.write(file)))
+  .catch(err => process.stdout.write(err))
