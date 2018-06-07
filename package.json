@@ -1,4 +1,43 @@
 {
   "name": "m.find",
-  "version": "0.0.0-draft"
+  "version": "0.0.1",
+  "description": "m(icro)find",
+  "main": "index.js",
+  "standard": {
+    "globals": [
+      "test"
+    ]
+  },
+  "scripts": {
+    "node": "node",
+    "pretest": "standard",
+    "test": "m.test",
+    "coverage": "node --require ./node_modules/m.test/global.js ./node_modules/istanbul/lib/cli.js cover --print detail test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivoputzer/m.find.git"
+  },
+  "keywords": [
+    "find",
+    "file",
+    "m.icro"
+  ],
+  "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ivoputzer/m.find/issues"
+  },
+  "homepage": "https://github.com/ivoputzer/m.find#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "m.test": "0.0.57",
+    "standard": "^11.0.1"
+  },
+  "optionalDependencies": {
+    "istanbul": "^0.4.5"
+  },
+  "directories": {
+    "test": "test"
+  }
 }
