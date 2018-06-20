@@ -1,7 +1,12 @@
 #!/usr/bin/env node
-
 const {find} = require('..')
 
-find(process.cwd(), { filter (path) { return true } })
-  .then(list => list.forEach(file => process.stdout.write(file)))
-  .catch(err => process.stdout.write(err))
+find(process.cwd(), {
+  filter (path) {
+    return true
+  }
+}).then(files => {
+  files.forEach(file => process.stdout.write(file))
+}).catch(err => {
+  process.stdout.write(err)
+})
