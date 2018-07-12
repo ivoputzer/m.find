@@ -4,9 +4,9 @@ NAME
     m.find - walks a file hierarchy.
 
 DESCRIPTION
-    the m.find utility recursively descends the
-     directory tree for each path listed, evalu-
-     ating an expression in terms of each file in the tree.
+    the m.find utility recursively descends the directory
+    tree for each path listed, evaluating a regular expression
+    in terms of each file in the tree.
 
 SYNOPSIS
     m.find [options] [...directories]
@@ -22,11 +22,11 @@ OPTIONS
       list hidden files and walk hidden folders.
 
     -f, --filter "pattern"
-      true if the last component of the pathname being examined
-      matches the pattern. the match is case insensitive.
+      true if filename being examined matches the pattern.
+      the match is case insensitive.
 
     -i, --ignore "pattern"
-      false if the last component of the pathname being examined
-      matches the pattern. the match is case insensitive.
+      false if filename being examined matches the pattern.
+      the match is case insensitive.
 
 M.FIND(1)      https://github.com/ivoputzer/m.find     M.FIND(1)
