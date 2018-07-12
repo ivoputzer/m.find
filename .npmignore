@@ -1,7 +1,7 @@
+node_modules/
 test/
 
-.babelrc
-.travis.yml
-
+*.md
 *.log
-*.tgz
+.travis.yml
+.gitignore
