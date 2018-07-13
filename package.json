@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "m(icro)find is a lightweight find utility written in es6+",
   "main": "index.js",
+  "man": [
+    "man/m.find.1"
+  ],
   "bin": {
     "m.find": "bin/m.find"
   },
@@ -12,7 +15,6 @@
     ]
   },
   "scripts": {
-    "node": "node",
     "start": "bin/m.find",
     "pretest": "standard",
     "test": "m.test",
@@ -23,22 +25,35 @@
     "url": "git+https://github.com/ivoputzer/m.find.git"
   },
   "keywords": [
+    "files",
     "find",
+    "look-up",
     "file",
+    "search",
+    "match",
+    "package",
+    "resolve",
+    "folder",
+    "directory",
+    "dir",
+    "walk",
+    "walking",
+    "path",
     "m.icro"
   ],
-  "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com>",
   "license": "MIT",
+  "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com>",
   "bugs": {
     "url": "https://github.com/ivoputzer/m.find/issues"
   },
   "homepage": "https://github.com/ivoputzer/m.find#readme",
   "dependencies": {
-    "istanbul": "^0.4.5"
+    "find": "^0.2.9",
+    "m.flatten": "^1.0.1"
   },
   "devDependencies": {
-    "m.test": "0.0.57",
-    "standard": "^11.0.1"
+    "standard": "^11.0.1",
+    "m.test": "0.0.57"
   },
   "optionalDependencies": {
     "istanbul": "^0.4.5"
