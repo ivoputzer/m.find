@@ -23,11 +23,10 @@ jobs:
     deploy:
       provider: npm
       email: ivo.putzer@gmail.com
+      api_key: $NPM_TOKEN
       on:
         branch: master
         repo: $TRAVIS_REPO_SLUG
-    before_deploy:
-    - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
     after_deploy:
     - npm view
   allow_failures:
