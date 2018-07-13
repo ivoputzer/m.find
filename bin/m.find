@@ -1,12 +1,45 @@
 #!/usr/bin/env node
+const {realpathSync, readFileSync} = require('fs')
+const {join, dirname} = require('path')
+const {EOL} = require('os')
 const {find} = require('..')
 
+const {argv: [, cmd, ...args]} = process
+
+if (args.some(arg => /^(-h|--help)$/.test(arg))) {
+  process.stdout.write(readFileSync(join(dirname(dirname(realpathSync(cmd))), 'man', 'm.find.1')).toString('utf8').split('\n').slice(9, -2).join('\n').replace(/SYNOPSIS/, '  Usage:').replace(/OPTIONS/, '  Options:').replace(/COMMANDS/, '  Commands:'))
+  process.exit(0)
+}
+
+if (args.some(arg => /^(-v|--version)$/.test(arg))) {
+  process.stdout.write(require(join(dirname(dirname(realpathSync(cmd))), 'package.json')).version)
+  process.exit(0)
+}
+
+const filters = []
+
+const isFilter = arg => /^(-f|--filter)/.test(arg)
+const isIgnore = arg => /^(-i|--ignore)/.test(arg)
+const isShowHidden = arg => /^(-H|--show-hidden)/.test(arg)
+
+if (!args.some(isShowHidden)) {
+  filters.push(path => !/^\./.test(path))
+}
+
+if (args.some(isFilter)) {
+  const [flag, value = args[1 + args.indexOf(flag)]] = args.find(isFilter).split('=')
+  filters.push(path => new RegExp(value, 'i').test(path))
+}
+
+if (args.some(isIgnore)) {
+  const [flag, value = args[1 + args.indexOf(flag)]] = args.find(isFilter).split('=')
+  filters.push(path => !new RegExp(value, 'i').test(path))
+}
+
 find(process.cwd(), {
-  filter (path) {
-    return true
-  }
+  filter: path => filters.every(filter => filter(path))
 }).then(files => {
-  files.forEach(file => process.stdout.write(file))
+  files.forEach(file => process.stdout.write(file + EOL))
 }).catch(err => {
   process.stdout.write(err)
 })
