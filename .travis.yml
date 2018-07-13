@@ -25,10 +25,8 @@ jobs:
       email: ivo.putzer@gmail.com
       api_key: $NPM_TOKEN
       on:
-        branch: master
         repo: $TRAVIS_REPO_SLUG
-    after_deploy:
-    - npm view
+        branch: master
   allow_failures:
   - node_js: 7
   - node_js: 6

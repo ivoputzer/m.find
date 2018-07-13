@@ -15,6 +15,7 @@
     ]
   },
   "scripts": {
+    "node": "node",
     "start": "bin/m.find",
     "pretest": "standard",
     "test": "m.test",
