@@ -1,32 +1,27 @@
 const {resolve} = require('path')
 const {promisify} = require('util')
 const {readdir, lstat} = require('fs')
+const {flatten} = require('m.flatten')
 
 const read = promisify(readdir)
 const stat = promisify(lstat)
 
-Object.assign(exports, {find, flatten, filter, walk})
-
-function find (dirname, options) {
+exports.find = (dirname, options, {find, filter, walk} = exports) => {
   return read(dirname)
-    .then(filter(options))
     .then(walk(dirname, options))
-    .then(flatten(options))
+    .then(flatten)
+    .then(filter(options))
 }
 
-function flatten (options, {prototype: {concat}} = Array) {
-  return paths => concat.apply([], paths)
-}
-
-function filter ({filter} = {filter: Boolean}) {
+exports.filter = ({filter} = {filter: Boolean}) => {
   return paths => paths.filter(filter)
 }
 
-function walk (dirname, options) {
+exports.walk = (dirname, options, {find} = exports) => {
   return paths => Promise.all(
     paths.map(filename => {
       const path = resolve(dirname, filename)
-      return stat(path).then(info => info.isDirectory() ? exports.find(path, options) : path)
+      return stat(path).then(info => info.isDirectory() ? find(path, options) : path)
     })
   )
 }
