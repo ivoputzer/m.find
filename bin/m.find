@@ -32,7 +32,7 @@ if (args.some(isFilter)) {
 }
 
 if (args.some(isIgnore)) {
-  const [flag, value = args[1 + args.indexOf(flag)]] = args.find(isFilter).split('=')
+  const [flag, value = args[1 + args.indexOf(flag)]] = args.find(isIgnore).split('=')
   filters.push(path => !new RegExp(value, 'i').test(path))
 }
 
