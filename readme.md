@@ -29,5 +29,6 @@ find(dirname, {
 ### cli usage
 
 ```sh
-m.find --show-hidden --filter "readme\.md"
+man m.find
+m.find --help
 ```
