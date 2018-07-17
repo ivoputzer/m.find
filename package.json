@@ -1,6 +1,6 @@
 {
   "name": "m.find",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "m(icro)find is a lightweight find utility written in es6+",
   "main": "index.js",
   "man": [
