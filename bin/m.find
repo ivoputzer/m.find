@@ -23,21 +23,29 @@ const isIgnore = arg => /^(-i|--ignore)/.test(arg)
 const isShowHidden = arg => /^(-H|--show-hidden)/.test(arg)
 
 if (!args.some(isShowHidden)) {
-  filters.push(path => !/^\./.test(path))
+  filters.push(path => {
+    return !/^\./.test(path)
+  })
 }
 
 if (args.some(isFilter)) {
   const [flag, value = args[1 + args.indexOf(flag)]] = args.find(isFilter).split('=')
-  filters.push(path => new RegExp(value, 'i').test(path))
+  filters.push(path => {
+    return new RegExp(value, 'i').test(path)
+  })
 }
 
 if (args.some(isIgnore)) {
   const [flag, value = args[1 + args.indexOf(flag)]] = args.find(isIgnore).split('=')
-  filters.push(path => !new RegExp(value, 'i').test(path))
+  filters.push(path => {
+    return !new RegExp(value, 'i').test(path)
+  })
 }
 
 find(process.cwd(), {
-  filter: path => filters.every(filter => filter(path))
+  filter (path) {
+    return filters.every(filter => filter(path))
+  }
 }).then(files => {
   files.forEach(file => process.stdout.write(file + EOL))
 }).catch(err => {
