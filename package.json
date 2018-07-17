@@ -1,6 +1,6 @@
 {
   "name": "m.find",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "m(icro)find is a lightweight find utility written in es6+",
   "main": "index.js",
   "man": [
@@ -49,7 +49,6 @@
   },
   "homepage": "https://github.com/ivoputzer/m.find#readme",
   "dependencies": {
-    "find": "^0.2.9",
     "m.flatten": "^1.0.1"
   },
   "devDependencies": {
