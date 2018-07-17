@@ -8,9 +8,9 @@ const stat = promisify(lstat)
 
 exports.find = (dirname, options, {find, filter, walk} = exports) => {
   return read(dirname)
+    .then(filter(options))
     .then(walk(dirname, options))
     .then(flatten)
-    .then(filter(options))
 }
 
 exports.filter = ({filter} = {filter: Boolean}) => {
